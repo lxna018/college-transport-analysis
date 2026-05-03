@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Transport Usage Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#hero" aria-label="College Transport Usage Analysis home">
+      <span class="brand-mark">T</span>
+      <span>Transport Analytics</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#method">Method</a>
+      <a href="#comparison">Comparison</a>
+      <a href="#insights">Insights</a>
+      <a href="#dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">College Transport Usage Analysis</p>
+        <h1>DBSCAN with K-Means Comparison</h1>
+        <p class="hero-text">
+          A data-focused project website for understanding student route demand, bus stop density,
+          peak usage behavior, and irregular travel patterns across a college transport network.
+        </p>
+        <div class="hero-actions" aria-label="Project actions">
+          <a class="button primary" href="#dashboard">View Analysis</a>
+          <a class="button secondary" href="#method">Explore Methods</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Cluster visualization preview">
+        <div class="map-panel">
+          <div class="map-header">
+            <span>Route Demand Clusters</span>
+            <strong>Live Model View</strong>
+          </div>
+          <div class="cluster-map">
+            <span class="point blue p1"></span>
+            <span class="point blue p2"></span>
+            <span class="point blue p3"></span>
+            <span class="point teal p4"></span>
+            <span class="point teal p5"></span>
+            <span class="point teal p6"></span>
+            <span class="point amber p7"></span>
+            <span class="point amber p8"></span>
+            <span class="point amber p9"></span>
+            <span class="point red p10"></span>
+            <span class="route r1"></span>
+            <span class="route r2"></span>
+            <span class="route r3"></span>
+          </div>
+          <div class="legend">
+            <span><i class="blue-dot"></i>High density</span>
+            <span><i class="teal-dot"></i>Regular usage</span>
+            <span><i class="amber-dot"></i>Moderate demand</span>
+            <span><i class="red-dot"></i>Noise</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Analysis highlights">
+      <div>
+        <strong>1,248</strong>
+        <span>student trips sampled</span>
+      </div>
+      <div>
+        <strong>18</strong>
+        <span>bus stops analyzed</span>
+      </div>
+      <div>
+        <strong>5</strong>
+        <span>usage groups detected</span>
+      </div>
+      <div>
+        <strong>7.6%</strong>
+        <span>irregular travel points</span>
+      </div>
+    </section>
+
+    <section class="section split" id="method">
+      <div>
+        <p class="eyebrow">Methodology</p>
+        <h2>Why DBSCAN fits transport usage data</h2>
+        <p>
+          College transport data often contains dense student pickup zones, lightly used routes,
+          and unusual trips caused by events, exams, or temporary schedule changes. DBSCAN is useful
+          because it can discover dense groups without forcing every data point into a cluster.
+        </p>
+      </div>
+      <div class="method-grid">
+        <article>
+          <span>01</span>
+          <h3>Collect</h3>
+          <p>Gather route, stop, boarding time, student count, and distance information.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Prepare</h3>
+          <p>Clean missing values, normalize numeric fields, and encode route categories.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Cluster</h3>
+          <p>Apply DBSCAN and K-Means to compare density-driven and centroid-driven grouping.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Interpret</h3>
+          <p>Identify crowded stops, underused paths, unusual usage, and scheduling opportunities.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="comparison">
+      <div class="section-heading">
+        <p class="eyebrow">Model Comparison</p>
+        <h2>DBSCAN versus K-Means</h2>
+      </div>
+      <div class="comparison-table" role="table" aria-label="DBSCAN and K-Means comparison">
+        <div class="table-row table-head" role="row">
+          <span role="columnheader">Factor</span>
+          <span role="columnheader">DBSCAN</span>
+          <span role="columnheader">K-Means</span>
+        </div>
+        <div class="table-row" role="row">
+          <span>Cluster shape</span>
+          <span>Finds irregular route usage patterns</span>
+          <span>Works best with round, balanced groups</span>
+        </div>
+        <div class="table-row" role="row">
+          <span>Number of clusters</span>
+          <span>Discovered automatically from density</span>
+          <span>Must be selected before training</span>
+        </div>
+        <div class="table-row" role="row">
+          <span>Outlier handling</span>
+          <span>Labels rare or unusual trips as noise</span>
+          <span>Assigns every trip to a cluster</span>
+        </div>
+        <div class="table-row" role="row">
+          <span>Transport insight</span>
+          <span>Strong for crowded stops and anomalies</span>
+          <span>Strong for simple segment summaries</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section insights" id="insights">
+      <div class="section-heading">
+        <p class="eyebrow">Key Findings</p>
+        <h2>What the analysis can reveal</h2>
+      </div>
+      <div class="insight-grid">
+        <article>
+          <h3>Peak demand zones</h3>
+          <p>Detect pickup areas where high boarding density may require larger buses or extra trips.</p>
+        </article>
+        <article>
+          <h3>Route optimization</h3>
+          <p>Compare heavily used and underused paths to improve timing, stop placement, and fleet use.</p>
+        </article>
+        <article>
+          <h3>Anomaly detection</h3>
+          <p>Spot unusual travel records that may indicate special events, data errors, or schedule gaps.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section dashboard" id="dashboard">
+      <div class="section-heading">
+        <p class="eyebrow">Dashboard</p>
+        <h2>Sample transport clustering output</h2>
+      </div>
+      <div class="dashboard-layout">
+        <div class="chart-panel">
+          <div class="panel-title">
+            <h3>Cluster strength by route</h3>
+            <span>DBSCAN score</span>
+          </div>
+          <div class="bar-chart" aria-label="Route cluster strength bar chart">
+            <div style="--value: 88"><span>North Gate</span><i></i><b>88</b></div>
+            <div style="--value: 74"><span>City Center</span><i></i><b>74</b></div>
+            <div style="--value: 69"><span>Railway Stop</span><i></i><b>69</b></div>
+            <div style="--value: 51"><span>Hostel Loop</span><i></i><b>51</b></div>
+            <div style="--value: 34"><span>Library Link</span><i></i><b>34</b></div>
+          </div>
+        </div>
+        <div class="summary-panel">
+          <h3>Project conclusion</h3>
+          <p>
+            DBSCAN is better for discovering natural transport demand groups and identifying unusual
+            student travel records. K-Means is useful as a comparison model when the project needs
+            simple, fixed segments for reporting.
+          </p>
+          <ul>
+            <li>Use DBSCAN for anomaly-aware route planning.</li>
+            <li>Use K-Means for quick cluster summaries.</li>
+            <li>Compare both models using silhouette score and domain interpretation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>College Transport Usage Analysis Using DBSCAN with K-Means Comparison</p>
+  </footer>
+</body>
+</html>
